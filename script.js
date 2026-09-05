@@ -63,7 +63,7 @@
     };
     const catIcons = { 'trompe-l-oeil': 'fa-eye', 'tartelettes': 'fa-cake-candles', 'cupcakes': 'fa-cupcake', 'patisseries': 'fa-croissant', 'box': 'fa-gift', 'gateaux': 'fa-cake-candles' };
 
-    // Détermine la page courante à partir du nom du fichier
+    // Détermine la page courante
     const path = window.location.pathname;
     let currentPage = 'home';
     if (path.includes('boutique')) currentPage = 'boutique';
@@ -76,7 +76,7 @@
     const mobileNav = document.getElementById('mobileNav');
     const rainContainer = document.getElementById('rainContainer');
 
-    // Active le bon lien dans la navigation
+    // Navigation active
     document.querySelectorAll('.header__nav-link, .mobile-overlay__link').forEach(link => {
         const page = link.getAttribute('data-nav');
         if (page === currentPage) link.classList.add('active');
@@ -128,7 +128,7 @@
         if (header) header.classList.toggle('scrolled', window.scrollY > 40);
     });
 
-    // Pluie d'icônes (uniquement sur l'accueil)
+    // Pluie d'icônes
     function initRain() {
         if (!rainContainer) return;
         rainContainer.innerHTML = '';
@@ -241,7 +241,6 @@
         }
     }
 
-    // Appliquer les paramètres d'URL si présents (depuis le carrousel)
     if (currentPage === 'boutique') {
         const urlParams = new URLSearchParams(window.location.search);
         const catParam = urlParams.get('cat');
@@ -281,16 +280,13 @@
     const counterOrders = document.getElementById('counterOrders');
     if (counterOrders) counterOrders.textContent = '1 247';
 
-    // --- FORMULAIRE CONTACT AVEC EMAILJS ---
+    // --- FORMULAIRE CONTACT AVEC EMAILJS (API REST) ---
     const contactForm = document.getElementById('contactForm');
     const btnProduitExistant = document.getElementById('btnProduitExistant');
     const btnPersonnalise = document.getElementById('btnPersonnalise');
     const groupProduitExistant = document.getElementById('groupProduitExistant');
     const groupPersonnalise = document.getElementById('groupPersonnalise');
     const produitsList = document.getElementById('produitsList');
-
-    // Initialisation d'EmailJS avec votre clé publique
-    emailjs.init("bgXtc2W3guCdOPmlD");
 
     btnProduitExistant?.addEventListener('click', () => {
         btnProduitExistant.classList.add('active');
@@ -309,24 +305,21 @@
         produitsList.innerHTML = allProducts.map(p => `<option value="${p.fullName}">`).join('');
     }
 
-    // Gestionnaire d'envoi du formulaire via EmailJS
+    // Gestionnaire d'envoi (correction : on ne parse pas le JSON en succès)
     contactForm?.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // Récupération des champs
         const nom = document.querySelector('input[name="Nom"]')?.value.trim() || '';
         const email = document.querySelector('input[name="Email"]')?.value.trim() || '';
         const adresse = document.querySelector('input[name="Adresse"]')?.value.trim() || '';
         const telephone = document.querySelector('input[name="Telephone"]')?.value.trim() || '';
         const message = document.querySelector('textarea[name="Message"]')?.value.trim() || '';
 
-        // Validation rapide des champs obligatoires
         if (!nom || !email || !adresse || !telephone || !message) {
             showToast('Veuillez remplir tous les champs obligatoires (*).', 'error');
             return;
         }
 
-        // Récupération du produit (existant ou personnalisé)
         let produit = '';
         const groupExistant = document.getElementById('groupProduitExistant');
         const groupPerso = document.getElementById('groupPersonnalise');
@@ -338,30 +331,53 @@
             produit = 'Non précisé';
         }
 
-        // Préparation des paramètres pour EmailJS
         const templateParams = {
-            title: 'Nouvelle commande',
             name: nom,
             email: email,
             phone: telephone,
             product: produit,
-            message: message,
-            time: new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' })
+            message: message
         };
 
-        // Envoi via EmailJS
-        emailjs.send("service_uzwo4g8", "template_yo638zq", templateParams)
-            .then(function(response) {
-                console.log('Succès !', response.status, response.text);
-                showToast('✅ Votre commande a été envoyée avec succès !', 'success');
-                contactForm.reset(); // vide le formulaire
-            }, function(error) {
-                console.error('Erreur :', error);
-                showToast('❌ Une erreur est survenue. Veuillez réessayer ou nous contacter directement.', 'error');
-            });
+        fetch('https://api.emailjs.com/api/v1.0/email/send', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                service_id: 'service_uzwo4g8',
+                template_id: 'template_yo638zq',
+                user_id: 'bgXtc2W3guCdOPmlD',
+                template_params: templateParams
+            })
+        })
+        .then(response => {
+            console.log('Statut HTTP :', response.status);
+            if (!response.ok) {
+                // En cas d'erreur, on essaie de parser le JSON pour avoir le message
+                return response.json().then(err => {
+                    throw new Error(err.message || `Erreur ${response.status}`);
+                }).catch(() => {
+                    // Si le parsing échoue, on prend le texte
+                    return response.text().then(text => {
+                        throw new Error(text || `Erreur ${response.status}`);
+                    });
+                });
+            }
+            // Succès : on ne parse pas, on considère que c'est bon
+            return response.text(); // ou on peut juste return true
+        })
+        .then(data => {
+            console.log('Succès, réponse :', data);
+            showToast('✅ Votre commande a été envoyée avec succès !', 'success');
+            // Rechargement immédiat
+            window.location.reload();
+        })
+        .catch(error => {
+            console.error('Erreur détaillée :', error);
+            showToast('❌ Erreur : ' + error.message, 'error');
+        });
     });
 
-    // Fonction améliorée pour les notifications toast
+    // Fonction pour les notifications toast
     function showToast(msg, type = 'info') {
         const toast = document.getElementById('toastContainer');
         if (!toast) return;
@@ -377,13 +393,13 @@
         }, 4000);
     }
 
-    // Copie de l'email au clic
+    // Copie de l'email
     document.getElementById('emailLink')?.addEventListener('click', function(e) {
         e.preventDefault();
         navigator.clipboard.writeText('delicebynaoual@gmail.com').then(() => showToast('Email copié !', 'info'));
     });
 
-    // Protection anti-copie (conservez vos sécurités)
+    // Sécurité anti-copie
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault();
         return false;

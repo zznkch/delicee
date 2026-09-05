@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <meta name="description" content="Contactez Naoual pour vos commandes de pâtisseries artisanales.">
+    <meta property="og:title" content="Contact - Délice by Naoual">
+    <meta property="og:description" content="Formulaire de commande, téléphone, email, Instagram et Snapchat.">
+    <meta property="og:image" content="https://delicebynaoual.github.io/Delice-by-Naoual/image/gateau.png">
+    <meta property="og:url" content="https://delicebynaoual.github.io/Delice-by-Naoual/contact">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image" href="https://delicebynaoual.github.io/Delice-by-Naoual/image/gateau.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/jellee-typeface" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Ajustement pour la carte dans le bloc contact -->
+    <style>
+        .contact-map {
+            margin-top: 20px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .contact-map iframe {
+            width: 100%;
+            height: 220px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="orb orb--rose"></div>
+    <div class="orb orb--gold"></div>
+    <div class="orb orb--peach"></div>
+
+    <header class="header" id="header">
+        <a href="index.html" class="header__logo" data-nav="home" aria-label="Accueil Délice by Naoual">
+            <img src="https://raw.githubusercontent.com/zznkch/D-lice/main/image/gateau.png" alt="Logo" class="header__logo-img" onerror="this.style.background='var(--rose-pale)'; this.style.minWidth='44px';">
+            <span class="header__logo-text">Délice <em>by</em> Naoual</span>
+        </a>
+        <nav class="header__nav" id="desktopNav">
+            <a href="index.html" class="header__nav-link" data-nav="home">Accueil</a>
+            <a href="boutique.html" class="header__nav-link" data-nav="boutique">Boutique</a>
+            <a href="histoire.html" class="header__nav-link" data-nav="a-propos">À propos</a>
+            <a href="contact.html" class="header__nav-link" data-nav="contact">Contact</a>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <div class="mobile-overlay" id="mobileOverlay">
+        <nav class="mobile-overlay__nav" id="mobileNav">
+            <a href="index.html" class="mobile-overlay__link" data-nav="home">Accueil</a>
+            <a href="boutique.html" class="mobile-overlay__link" data-nav="boutique">Boutique</a>
+            <a href="histoire.html" class="mobile-overlay__link" data-nav="a-propos">À propos</a>
+            <a href="contact.html" class="mobile-overlay__link" data-nav="contact">Contact</a>
+        </nav>
+    </div>
+
+    <main>
+        <section class="section" style="padding-top: 120px;">
+            <div class="section__header"><p class="section__tag">Contact</p><h2 class="section__title">Je suis là <em>pour toi</em></h2></div>
+            <div class="contact-layout">
+                <div class="contact-info-card">
+                    <h3>Me contacter</h3>
+                    <a href="tel:+33622587560" class="contact-link"><i class="fa-solid fa-phone"></i> +33 6 22 58 75 60</a>
+                    <a href="mailto:delicebynaoual@gmail.com" class="contact-link" id="emailLink"><i class="fa-solid fa-envelope"></i> delicebynaoual@gmail.com</a>
+                    <div class="social-btns">
+                        <a href="https://www.instagram.com/les_patisseries_de_naoual" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.snapchat.com/@delice_bynaoual" target="_blank" class="social-btn"><i class="fa-brands fa-snapchat"></i></a>
+                    </div>
+                    <div style="margin-top:16px;background:var(--rose-pale);padding:14px;border-radius:14px;">
+                        <strong><i class="fa-solid fa-location-dot"></i> Marché :</strong> Tous les samedis à Behren-lès-Forbach
+                    </div>
+
+                    <!-- Carte Google Maps intégrée dans la colonne de gauche -->
+                    <div class="contact-map">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.991625191579!2d6.9298868!3d49.1702095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4795b3467ec2cfe5%3A0x9b20eb9fa4a14677!2sPlace%20Jean-Moulin%2C%2057460%20Behren-l%C3%A8s-Forbach!5e0!3m2!1sfr!2sfr!4v1685952000000"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Place Jean-Moulin, Behren-lès-Forbach">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h3>Demande de commande</h3>
+                    <form id="contactForm" action="#" method="POST">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="false">
+                        <input type="hidden" name="_subject" value="Nouvelle commande Délice by Naoual">
+                        <div class="form-group">
+                            <input type="text" name="Nom" placeholder=" " required>
+                            <label>Votre nom *</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="Email" placeholder=" " required>
+                            <label>Votre email *</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="Adresse" placeholder=" " required>
+                            <label>Adresse *</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="Telephone" placeholder=" " required>
+                            <label>Numéro de téléphone *</label>
+                        </div>
+                        <div style="display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap;">
+                            <button type="button" class="chip active" id="btnProduitExistant">Produit existant</button>
+                            <button type="button" class="chip" id="btnPersonnalise">Personnalisé</button>
+                        </div>
+                        <div class="form-group" id="groupProduitExistant">
+                            <input type="text" id="formProduit" name="Produit souhaité" placeholder=" " list="produitsList" autocomplete="off">
+                            <label>Choisir un produit</label>
+                            <datalist id="produitsList"></datalist>
+                        </div>
+                        <div class="form-group" id="groupPersonnalise" style="display:none;">
+                            <textarea name="Description personnalisée" placeholder=" " rows="3"></textarea>
+                            <label>Décrivez votre création</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="Message" placeholder=" " rows="4" required></textarea>
+                            <label>Votre message *</label>
+                        </div>
+                        <button type="submit" class="btn btn--rose btn--submit"><span class="btn-text">Envoyer <i class="fa-solid fa-paper-plane"></i></span><span class="spinner" style="display:none;"></span></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p><strong>Délice by Naoual</strong> Pâtisserie artisanale sur commande</p>
+        <p><i class="fa-solid fa-location-dot"></i> Marché tous les samedis à <strong>Behren-lès-Forbach</strong></p>
+        <p><i class="fa-solid fa-phone"></i> <a href="tel:+33622587560">+33 6 22 58 75 60</a> • <i class="fa-solid fa-envelope"></i> <a href="mailto:delicebynaoual@gmail.com">delicebynaoual@gmail.com</a></p>
+        <div class="footer__social">
+            <a href="https://www.instagram.com/les_patisseries_de_naoual" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://www.snapchat.com/@delice_bynaoual" target="_blank"><i class="fa-brands fa-snapchat"></i> Snapchat</a>
+        </div>
+        <p style="margin-top:10px;opacity:0.7;">© 2025 Fait avec <i class="fa-solid fa-heart"></i> et beaucoup de chocolat</p>
+    </footer>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- SDK EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

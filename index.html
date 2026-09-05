@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Délice by Naoual</title>
+    <meta name="description" content="Pâtisserie artisanale sur commande — Trompe-l'œil artistiques, tartelettes, cupcakes, box cadeaux et gâteaux grands formats. Délice by Naoual, Behren-lès-Forbach.">
+    <meta property="og:title" content="Délice by Naoual">
+    <meta property="og:description" content="Contactez Naoual pour commandes de gâteaux, trompe-l'œil et pâtisseries artisanales. Téléphone, email, Snapchat & Instagram.">
+    <meta property="og:image" content="https://delicebynaoual.github.io/Delice-by-Naoual/image/gateau.png">
+    <meta property="og:url" content="https://delicebynaoual.github.io/Delice-by-Naoual/">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image" href="https://delicebynaoual.github.io/Delice-by-Naoual/image/gateau.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/jellee-typeface" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="orb orb--rose"></div>
+    <div class="orb orb--gold"></div>
+    <div class="orb orb--peach"></div>
+    <div class="rain-container" id="rainContainer"></div>
+
+    <header class="header" id="header">
+        <a href="index.html" class="header__logo" data-nav="home" aria-label="Accueil Délice by Naoual">
+            <img src="https://raw.githubusercontent.com/zznkch/D-lice/main/image/gateau.png" alt="Logo" class="header__logo-img" onerror="this.style.background='var(--rose-pale)'; this.style.minWidth='44px';">
+            <span class="header__logo-text">Délice <em>by</em> Naoual</span>
+        </a>
+        <nav class="header__nav" id="desktopNav">
+            <a href="index.html" class="header__nav-link" data-nav="home">Accueil</a>
+            <a href="boutique.html" class="header__nav-link" data-nav="boutique">Boutique</a>
+            <a href="histoire.html" class="header__nav-link" data-nav="a-propos">À propos</a>
+            <a href="contact.html" class="header__nav-link" data-nav="contact">Contact</a>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <div class="mobile-overlay" id="mobileOverlay">
+        <nav class="mobile-overlay__nav" id="mobileNav">
+            <a href="index.html" class="mobile-overlay__link" data-nav="home">Accueil</a>
+            <a href="boutique.html" class="mobile-overlay__link" data-nav="boutique">Boutique</a>
+            <a href="histoire.html" class="mobile-overlay__link" data-nav="a-propos">À propos</a>
+            <a href="contact.html" class="mobile-overlay__link" data-nav="contact">Contact</a>
+        </nav>
+    </div>
+
+    <main>
+        <section class="full-carousel" id="fullCarousel">
+            <div class="full-carousel__track" id="fullCarouselTrack"></div>
+            <button class="full-carousel__arrow full-carousel__arrow--prev" id="fullCarouselPrev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="full-carousel__arrow full-carousel__arrow--next" id="fullCarouselNext"><i class="fa-solid fa-chevron-right"></i></button>
+        </section>
+
+        <section class="hero" id="hero">
+            <div class="hero__badge"><i class="fa-solid fa-star"></i> Pâtisserie Artisanale • Sur commande</div>
+            <h1 class="hero__title">L'art de la pâtisserie <em>sublime</em></h1>
+            <p class="hero__subtitle">Le goût du bonheur dans chaque bouchée</p>
+            <div class="hero__btns">
+                <a href="boutique.html" class="btn btn--primary">Voir les créations <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="contact.html" class="btn btn--outline">Demander une commande <i class="fa-solid fa-paper-plane"></i></a>
+            </div>
+            <div class="hero__scroll" id="heroScroll"><i class="fa-solid fa-chevron-down"></i></div>
+        </section>
+
+        <section class="section" id="arguments">
+            <div class="section__header">
+                <p class="section__tag">Pourquoi nous choisir</p>
+                <h2 class="section__title">L'excellence <em>artisanale</em></h2>
+            </div>
+            <div class="arguments-grid">
+                <div class="arg-card"><div class="arg-card__icon"><i class="fa-solid fa-truck-fast"></i></div><h3>Livraison soignée</h3><p>Remise en main propre au marché de Behren-lès-Forbach chaque samedi.</p></div>
+                <div class="arg-card"><div class="arg-card__icon"><i class="fa-solid fa-crown"></i></div><h3>Ingrédients premium</h3><p>Farines bio, beurre AOP, chocolat grand cru.</p></div>
+                <div class="arg-card"><div class="arg-card__icon"><i class="fa-solid fa-paintbrush"></i></div><h3>100% personnalisable</h3><p>Chaque création s'adapte à vos envies.</p></div>
+                <div class="arg-card"><div class="arg-card__icon"><i class="fa-solid fa-heart"></i></div><h3>Passion & passion</h3><p>Une artisan passionnée à votre service.</p></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p><strong>Délice by Naoual</strong> Pâtisserie artisanale sur commande</p>
+        <p><i class="fa-solid fa-location-dot"></i> Marché tous les samedis à <strong>Behren-lès-Forbach</strong></p>
+        <p><i class="fa-solid fa-phone"></i> <a href="tel:+33622587560">+33 6 22 58 75 60</a> • <i class="fa-solid fa-envelope"></i> <a href="mailto:delicebynaoual@gmail.com">delicebynaoual@gmail.com</a></p>
+        <div class="footer__social">
+            <a href="https://www.instagram.com/les_patisseries_de_naoual" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://www.snapchat.com/@delice_bynaoual" target="_blank"><i class="fa-brands fa-snapchat"></i> Snapchat</a>
+        </div>
+        <p style="margin-top:10px;opacity:0.7;">© 2025 Fait avec <i class="fa-solid fa-heart"></i> et beaucoup de chocolat</p>
+    </footer>
+
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="script.js"></script>
+</body>
+</html>

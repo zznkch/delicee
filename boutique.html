@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique</title>
+    <meta name="description" content="Trompe-l'œil, tartelettes, cupcakes, box cadeaux et gâteaux. Pâtisserie artisanale sur commande à Behren-lès-Forbach.">
+    <meta property="og:title" content="Boutique - Délice by Naoual">
+    <meta property="og:description" content="Découvrez toutes les créations de Naoual.">
+    <meta property="og:image" content="https://delicebynaoual.github.io/Delice-by-Naoual/image/gateau.png">
+    <meta property="og:url" content="https://delicebynaoual.github.io/Delice-by-Naoual/boutique">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image" href="https://delicebynaoual.github.io/Delice-by-Naoual/image/gateau.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/jellee-typeface" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="orb orb--rose"></div>
+    <div class="orb orb--gold"></div>
+    <div class="orb orb--peach"></div>
+
+    <header class="header" id="header">
+        <a href="index.html" class="header__logo" data-nav="home" aria-label="Accueil Délice by Naoual">
+            <img src="https://raw.githubusercontent.com/zznkch/D-lice/main/image/gateau.png" alt="Logo" class="header__logo-img" onerror="this.style.background='var(--rose-pale)'; this.style.minWidth='44px';">
+            <span class="header__logo-text">Délice <em>by</em> Naoual</span>
+        </a>
+        <nav class="header__nav" id="desktopNav">
+            <a href="index.html" class="header__nav-link" data-nav="home">Accueil</a>
+            <a href="boutique.html" class="header__nav-link" data-nav="boutique">Boutique</a>
+            <a href="histoire.html" class="header__nav-link" data-nav="a-propos">À propos</a>
+            <a href="contact.html" class="header__nav-link" data-nav="contact">Contact</a>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <div class="mobile-overlay" id="mobileOverlay">
+        <nav class="mobile-overlay__nav" id="mobileNav">
+            <a href="index.html" class="mobile-overlay__link" data-nav="home">Accueil</a>
+            <a href="boutique.html" class="mobile-overlay__link" data-nav="boutique">Boutique</a>
+            <a href="histoire.html" class="mobile-overlay__link" data-nav="a-propos">À propos</a>
+            <a href="contact.html" class="mobile-overlay__link" data-nav="contact">Contact</a>
+        </nav>
+    </div>
+
+    <main>
+        <section class="section" style="padding-top: 120px;">
+            <div class="section__header"><p class="section__tag">Boutique</p><h2 class="section__title">Toutes nos <em>créations</em></h2></div>
+            <div class="counter-bar">
+                <i class="fa-solid fa-cake-candles"></i> Déjà <span id="counterOrders">1 247</span> commandes réalisées
+            </div>
+            <div class="shop-search"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="shopSearch" placeholder="Rechercher..."></div>
+            <div class="gallery-filters" id="shopFilters">
+                <button class="chip active" data-filter="all">Tout</button>
+                <button class="chip" data-filter="trompe-l-oeil">Trompe-l'œil</button>
+                <button class="chip" data-filter="tartelettes">Tartelettes</button>
+                <button class="chip" data-filter="cupcakes">Cupcakes/Muffins</button>
+                <button class="chip" data-filter="patisseries">Pâtisseries</button>
+                <button class="chip" data-filter="box">Box à offrir</button>
+                <button class="chip" data-filter="gateaux">Gâteaux</button>
+            </div>
+            <div class="sort-bar"><button class="sort-btn" id="sortBtn"><i class="fa-solid fa-arrow-up-wide-short"></i> Prix <span id="sortDir">croissant</span></button></div>
+            <div id="shopGroupsContainer"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p><strong>Délice by Naoual</strong> Pâtisserie artisanale sur commande</p>
+        <p><i class="fa-solid fa-location-dot"></i> Marché tous les samedis à <strong>Behren-lès-Forbach</strong></p>
+        <p><i class="fa-solid fa-phone"></i> <a href="tel:+33622587560">+33 6 22 58 75 60</a> • <i class="fa-solid fa-envelope"></i> <a href="mailto:delicebynaoual@gmail.com">delicebynaoual@gmail.com</a></p>
+        <div class="footer__social">
+            <a href="https://www.instagram.com/les_patisseries_de_naoual" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://www.snapchat.com/@delice_bynaoual" target="_blank"><i class="fa-brands fa-snapchat"></i> Snapchat</a>
+        </div>
+        <p style="margin-top:10px;opacity:0.7;">© 2025 Fait avec <i class="fa-solid fa-heart"></i> et beaucoup de chocolat</p>
+    </footer>
+
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="script.js"></script>
+</body>
+</html>
